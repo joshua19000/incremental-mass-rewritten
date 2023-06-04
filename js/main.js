@@ -18,14 +18,14 @@ const CONFIRMS = ['rp', 'bh', 'atom', 'sn', 'qu', 'br', 'dark']
 
 const FORMS = {
     getPreInfGlobalSpeed() {
-        let x = E(1)
+        let x = E(1000)
         
         if (tmp.inf_unl) x = x.mul(10).mul(theoremEff('time',0))
 
         return x
     },
     getPreQUGlobalSpeed() {
-        let x = E(1), inf = tmp.preInfGlobalSpeed
+        let x = E(10000), inf = tmp.preInfGlobalSpeed
 
         if (tmp.c16active) return inf.div(100)
 
@@ -43,7 +43,7 @@ const FORMS = {
         return x.mul(inf)
     },
     massGain() {
-        let x = E(1)
+        let x = E(100000)
         x = x.add(tmp.upgs.mass[1]?tmp.upgs.mass[1].eff.eff:1)
         if (player.ranks.rank.gte(6)) x = x.mul(RANKS.effect.rank[6]())
         if (player.ranks.rank.gte(13)) x = x.mul(3)
